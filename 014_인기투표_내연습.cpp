@@ -17,7 +17,7 @@ int sum[10000 + 10];
 int calhash(char* str){
     int hash = 5381, c;
     while(c = *str++){
-        hash = (((hash<<4)+hash) + c) % MAXHASH;
+        hash = (((hash<<5)+hash) + c) % MAXHASH;
     }
     return hash;
 }
@@ -46,11 +46,11 @@ void insertkey(char* str){
 int getkey(char* str){
     int i, hkey =calhash(str), idx = hkey;
     for(i=0; i< MAXHASH; i++){
-        if(htbl[i].id == 0){
+        if(htbl[idx].id == 0){
             return 0;
         }
-        else if((strcmp(htbl[idx].org, str) == 0) && (htbl[idx].hkey == hkey) ){
-            return htbl[idx].id;
+		else if ((htbl[idx].hkey == hkey) && (strcmp(htbl[idx].org, str) == 0)) {
+           return htbl[idx].id;
         }
         idx = (idx+13) & MOD;
     }
