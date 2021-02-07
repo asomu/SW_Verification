@@ -16,33 +16,37 @@ if os.path.isdir(input_dir):
 else:
     input_file_list = []
 
-# for file in input_file_list:
-#     with open(file, 'r', encoding='uft-8') as f:
-#         input =  f.read()
-#         print(input)
-
-with  open(input_file_list[0], 'r') as r:
-    N = int(r.readline())
-    H = []
-    
-    for i in range(N):
-        H.append(int(r.readline()))
-
-def solve():
+def solve(A):
+    cnt = 0
     my_stack = []
-    for i in range(N-1):
-        if H[i] <= H[i+1]:
+    for item in A:
+        if not my_stack:
+            my_stack.append(item)
+        else:
+            while my_stack:
+                com = my_stack.pop()
+                if item < com:
+                    my_stack.append(com)
+                    cnt += len(my_stack)
+                    my_stack.append(item)
+                    break
+                else:
+                    pass
+            else:
+                my_stack.append(item)
+    return cnt
 
-#solve()
+sol = []
 
+for file in input_file_list:
+    with  open(file, 'r') as r:
+        N = int(r.readline())
+        A = []
+        for i in range(N):
+            A.append(int(r.readline()))
+        ans = solve(A)
+        sol.append(ans)
 
-
-
-
-#user_input = input()
-#print ("Hello Goorm! Your input is " + user_input)
-
-
-
-
+for i, ret in enumerate(sol):
+    print(i, ret)
 # %%
