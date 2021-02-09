@@ -5,10 +5,10 @@ stack.append('b')
 stack.append('c')
 stack.append('d')
 stack.append('e')
-
+stack.append()
 while stack:
     print(stack.pop())
-
+    stack.
 
 # %%
 N = int(input())
