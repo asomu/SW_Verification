@@ -43,7 +43,6 @@ int solve() {
 		if (cnt[k] > 0) {
 			for (int y = color[k][0].y; y <= color[k][cnt[k]-1].y; y++) {
 				for (int x = color[k][0].x; x <= color[k][cnt[k]-1].x; x++) {
-					if (map[y][x] != k) {
 						flag[map[y][x]] = 0;
 					}
 				}

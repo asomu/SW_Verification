@@ -43,7 +43,7 @@ for file in input_file_list:
         N = int(r.readline())
         A = []
         for i in range(N):
-            A.append(int(r.readline()))
+            A.append(int(r.readline().strip("\n")))
         ans = solve(A)
         sol.append(ans)
 
