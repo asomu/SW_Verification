@@ -3,9 +3,19 @@ import subprocess
 import os
 from glob import glob
 
-RUN_FILE_NAME="디스플레이필터"
 
+#--------실행파일---------#
+RUN_FILE_NAME="건물옥상정원"
+
+#----testcase 폴더번호입력-----#
 LOCATION_OF_TESTCASE = "testcase01"
+
+#----테스트하고 싶은 input.txt 번호입력-----#
+RUN_MODE = { "ALL":True , "EACH":False}
+CURRENT_MODE = RUN_MODE["EACH"]
+INPUT_NUM = 3
+
+
 name = f'{RUN_FILE_NAME}.py'
 folder_name = name.split('.')[0]
 cmd = ['python', name]
@@ -52,10 +62,15 @@ def check_pass_fail(idx, ret, output_file_list):
 if __name__ == '__main__':
      input_file_list = get_input_file_names()
      output_file_list = get_output_file_names()
-     for idx, input_file in enumerate(input_file_list):
-          ret = run_test_case(input_file)
-          pass_fail = check_pass_fail(idx, ret, output_file_list)
-          print(pass_fail)
+     if CURRENT_MODE:
+          for idx, input_file in enumerate(input_file_list):
+               ret = run_test_case(input_file)
+               pass_fail = check_pass_fail(idx, ret, output_file_list)
+               print(pass_fail)
+     else:
+          ret = run_test_case(input_file_list[INPUT_NUM-1])
+          pass_fail = check_pass_fail(INPUT_NUM-1, ret, output_file_list)
+          print(f"결과값 {ret} 판정: {pass_fail}")
      
 # %%
 
