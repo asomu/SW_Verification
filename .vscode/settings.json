@@ -49,5 +49,6 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "deque": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Anaconda3\\python.exe"
 }
