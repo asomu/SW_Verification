@@ -5,15 +5,15 @@ from glob import glob
 
 
 #--------실행파일---------#
-RUN_FILE_NAME="건물옥상정원"
+RUN_FILE_NAME="마리오게임"
 
 #----testcase 폴더번호입력-----#
 LOCATION_OF_TESTCASE = "testcase01"
 
 #----테스트하고 싶은 input.txt 번호입력-----#
 RUN_MODE = { "ALL":True , "EACH":False}
-CURRENT_MODE = RUN_MODE["EACH"]
-INPUT_NUM = 3
+CURRENT_MODE = RUN_MODE["ALL"]
+INPUT_NUM = 1
 
 
 name = f'{RUN_FILE_NAME}.py'

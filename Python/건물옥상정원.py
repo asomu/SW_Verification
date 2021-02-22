@@ -1,8 +1,6 @@
 #%%
-#분류: Stack, Sliding Window.
+#분류: Stack
 #난이도 **
-import os
-from glob import glob
 
 N = int(input())
 A = [ int(input()) for _ in range(N) ]
